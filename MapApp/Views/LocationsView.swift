@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct LocationsView: View {
     @EnvironmentObject var vm: LocationsViewModel
     
     var body: some View {
-        List {
-            ForEach(vm.locations) {
-                Text($0.name)
-            }
+        ZStack {
+            Map(position: $vm.mapRegion)
         }
     }
 }
